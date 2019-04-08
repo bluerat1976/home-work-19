@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Event phases</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+
+</head>
+
+<body>
+
+    <div class='main'>
+        <input type="button" id="button1" value="First">
+        <input type="button" id="button2" value="Second">
+        <input type="button" id="button3" value="Third">
+    </div>
+    <div class='phrase'>
+
+    </div>
+
+    <script>
+
+        var div = document.createElement('div');
+        div.className = 'phrase';
+        div.innerHTML = 'Please click on any button';
+        var parentElem = document.body;
+        parentElem.appendChild(div);
+
+
+        function click1() {
+            div.innerHTML = 'You clicked first button';
+            var parentElem = document.body;
+            parentElem.appendChild(div);
+            var elem = this.tagName;
+            var elem2 = event.target;
+            console.log('capturing - ' + elem2 + ' ; ' + 'this - ' + elem);
+        }
+        function click2() {
+            div.innerHTML = 'You clicked second button';
+            var parentElem = document.body;
+            parentElem.appendChild(div);
+            var elem = this.tagName;
+            var elem2 = event.target;
+            console.log('capturing - ' + elem2 + ' ; ' + 'this - ' + elem);
+        }
+        function click3() {
+            div.innerHTML = 'You clicked third button';
+            var parentElem = document.body;
+            parentElem.appendChild(div);
+            var elem = this.tagName;
+            var elem2 = event.target;
+            console.log('capturing - ' + elem2 + ' ; ' + 'this - ' + elem);
+        }
+
+        button1.addEventListener('click', click1);
+        button2.addEventListener('click', click2);
+        button3.addEventListener('click', click3);
+
+    </script>
+
+
+</body>
+
+</html>
