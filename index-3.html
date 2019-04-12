@@ -13,45 +13,40 @@
 
 <body>
 
-  <div class='main'>
-        <input type="button" id="button1" value="First">
-        <input type="button" id="button2" value="Second">
-        <input type="button" id="button3" value="Third">
-  </div>
-    <div class='phrase'>
-       
-    </div>
-    
-    <script>
+<div>
+  <input type="button" id="button1" value="First">
+  <input type="button" id="button2" value="Second">
+  <input type="button" id="button3" value="Third">
+</div>
 
-        var div = document.createElement('div');
-        div.className = 'phrase';
-        div.innerHTML = 'Please click on any button';
-        var parentElem = document.body;
-        parentElem.appendChild(div);
+  <script>
+  var selectedTd;
 
-        function click1() {
+div.onclick = function(event) {
+  var target = event.target; // где был клик?
+
+ 
+ if  (function click1) { 
            div.innerHTML = 'You clicked first button';
             var parentElem = document.body;
             parentElem.appendChild(div);
-
-        }
-        function click2() {
+    } else if ( function click2) {
             div.innerHTML = 'You clicked second button';
             var parentElem = document.body;
             parentElem.appendChild(div);
-        }
-        function click3() {
+          } else if ( function click3) {
             div.innerHTML = 'You clicked third button';
             var parentElem = document.body;
             parentElem.appendChild(div);
-        }
-        button1.addEventListener('click', click1);
+                } else if (target.tagName != 'input') {
+                  return;
+            }
+ button1.addEventListener('click', click1);
         button2.addEventListener('click', click2);
         button3.addEventListener('click', click3);
-    </script>
+};
 
-
+</script>
 </body>
 
 </html>
